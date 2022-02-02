@@ -54,11 +54,11 @@ else:
 	st.text('Choose Options to Predict if a Player Would be a 1st Round Pick')
 	model = load_model()
 	age = st.sidebar.slider('Age', min_value = 18, max_value = 28, value = 22, step = 1)
-	forty = st.sidebar.number_input('40 time', min_value = 4.0, max_value = 6.0, value = 5.0, step = 0.1)
+	forty = st.sidebar.number_input('40 time', min_value = 4, max_value = 6, value = 5, step = 1)
 	vertical = st.sidebar.number_input('Vertical Jump', min_value = 70, max_value = 100, value = 80, step = 1)
 	bench = st.sidebar.number_input('Bench Press Reps 225', min_value = 0, max_value = 40, value = 20, step = 1)
 	bmi = st.sidebar.number_input('BMI', min_value = 20, max_value = 45, value = 30, step = 1)
-	three_cone = st.sidebar.slider('3 cone drill', min_value = 5, max_value = 7, value = 5, step = .1)
+	three_cone = st.sidebar.slider('3 cone drill', min_value = 5, max_value = 7, value = 5, step = 1)
 	school = st.sidebar.selectbox('School Attended', df['School'].unique().tolist())
 	position = st.sidebar.selectbox('Position Played', df['Position'].unique().tolist())
 	

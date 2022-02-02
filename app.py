@@ -54,31 +54,36 @@ else:
 	st.text('Choose Options to Predict if a Player Would be a 1st Round Pick')
 	model = load_model()
 	age = st.sidebar.slider('Age', min_value = 18, max_value = 28, value = 22, step = 1)
-	forty = st.sidebar.number_input('40 time', min_value = 4, max_value = 6, value = 5, step = 1)
+	forty = st.sidebar.number_input('40 time', min_value = 4, max_value = 6, value = 5, step = 0.1)
 	vertical = st.sidebar.number_input('Vertical Jump', min_value = 70, max_value = 100, value = 80, step = 1)
 	bench = st.sidebar.number_input('Bench Press Reps 225', min_value = 0, max_value = 40, value = 20, step = 1)
 	bmi = st.sidebar.number_input('BMI', min_value = 20, max_value = 45, value = 30, step = 1)
-	three_cone = st.sidebar.slider('3 cone drill', min_value = 5, max_value = 7, value = 5, step = 1)
+	weight = st.sidebar.number_input('Weight', min_value = 60, max_value = 200, value = 140, step = 10)
+	three_cone = st.sidebar.slider('3 cone drill', min_value = 5, max_value = 7, value = 6, step = 0.1)
+	shuttle = st.sidebar.slider('Shuttle Time', min_value = 4, max_value = 5, value = 4.5, step = 0.1)
+	height = st.sidebar.number_input('Height', min_value = 1, max_value = 2, value = 1.5, step = .1)
 	school = st.sidebar.selectbox('School Attended', df['School'].unique().tolist())
 	position = st.sidebar.selectbox('Position Played', df['Position'].unique().tolist())
+	positiontype = st.sidebar.selectbox('Position Grouping', df['Position_Type'].unique().tolist())
+	sideofball = st.sidebar.selectbox('Side of the Ball', df['Player_Type'].unique().tolist())
 	
 	sample = {
 		'Age': age,
 		'School': school,
 		'Position': position,
 		'Sprint_40yd': forty,
-		'Year': None,
-		'Height': None,
+		'Year': 2005,
+		'Height': height,
 		'Vertical_Jump': vertical,
 		'Bench_Press_Reps': bench,
-		'Broad_Jump': None,
+		'Broad_Jump': 300,
 		'Agility_3cone': three_cone,
-		'Shuttle': None,
+		'Shuttle': shuttle,
 		'BMI': bmi,
-		'Player_Type': None,
-		'Position_Type': None,
-		'Weight': None,
-		'Player Name': None
+		'Player_Type': sideofball,
+		'Position_Type': positiontype,
+		'Weight': weight,
+		'Player Name': 'john'
 	}
 	
 	sample = pd.DataFrame(sample, index = [0])

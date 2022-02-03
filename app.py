@@ -88,6 +88,6 @@ else:
 	sample = pd.DataFrame(sample, index = [0])
 	prediction = model.predict(sample)[0]
 	
-	st.title(f"1st Round Pick: ${int(prediction)}")
+	st.title(f"1st Round Pick (0 = No, 1 = Yes): {int(prediction)}")
 
 	
